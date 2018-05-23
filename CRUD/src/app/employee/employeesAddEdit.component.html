@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <span title="Add" *ngIf="addFlag">Add</span>
+                <span title="Edit" *ngIf="!addFlag">Edit</span>
+                Employee Details
+            </th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" [(ngModel)]="addEditObj.firstName" /></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" [(ngModel)]="addEditObj.lastName" /></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" [(ngModel)]="addEditObj.age" /></td>
+        </tr>
+        <tr>
+            <td>Company</td>
+            <td><input type="text" [(ngModel)]="addEditObj.company" /></td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="addEditEmployee();">
+    <span title="Add" *ngIf="addFlag">Save</span>
+    <span title="Edit" *ngIf="!addFlag">Update</span>
+</button>

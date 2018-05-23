@@ -1,0 +1,29 @@
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Company</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employeeItem of employeeList;let i = index">
+            <td>{{employeeItem.firstName}}</td>
+            <td>{{employeeItem.lastName}}</td>
+            <td>{{employeeItem.age}}</td>
+            <td>{{employeeItem.company}}</td>
+            <td><a [routerLink]="['/edit', i]">Edit</a> | 
+                <a (click)="deleteEmployee(i)">Delete</a> | 
+                <a [routerLink]="['/details', i]">Show</a>
+            </td>
+        </tr>
+        <!-- Condition when no employee data exists -->
+        <tr *ngIf='!employeeList.length'>
+            <td colspan="5">No employees found.</td>
+        </tr>
+    </tbody>    
+</table>
+
+<button><a [routerLink]="['/add']">Add Employee</a></button>
